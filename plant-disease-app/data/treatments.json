@@ -1,0 +1,390 @@
+{
+  "treatments": [
+    {
+      "disease_name": "Tomato Early Blight",
+      "crop": "Tomato",
+      "summary": "Early blight is a common fungal disease caused by Alternaria solani. It affects leaves, stems, and fruits, reducing yield and quality.",
+      "symptoms": [
+        "Dark brown spots with concentric rings on older leaves",
+        "Yellowing of leaves around spots",
+        "Premature leaf drop",
+        "Lesions on stems and fruits",
+        "Target-like pattern in spots"
+      ],
+      "cultural_controls": [
+        "Remove and destroy infected plant debris",
+        "Practice crop rotation (3-4 year cycle)",
+        "Space plants properly for air circulation",
+        "Avoid overhead watering",
+        "Apply mulch to prevent soil splash",
+        "Stake plants to keep foliage off ground"
+      ],
+      "biological_controls": [
+        "Apply Bacillus subtilis-based biofungicides",
+        "Use compost tea to boost plant immunity",
+        "Apply beneficial microorganisms to soil"
+      ],
+      "chemical_controls": [
+        "Apply copper-based fungicides",
+        "Use chlorothalonil fungicides preventively",
+        "Apply mancozeb or maneb fungicides",
+        "Follow 7-14 day spray intervals during wet weather"
+      ],
+      "prevention": [
+        "Use disease-resistant varieties",
+        "Ensure good drainage",
+        "Maintain proper plant nutrition",
+        "Remove lower leaves as plants grow",
+        "Monitor regularly for early detection"
+      ],
+      "severity": "Moderate to High"
+    },
+    {
+      "disease_name": "Tomato Late Blight",
+      "crop": "Tomato",
+      "summary": "Late blight is a devastating disease caused by Phytophthora infestans. It can destroy entire crops within days under favorable conditions.",
+      "symptoms": [
+        "Water-soaked spots on leaves and stems",
+        "Gray-white fuzzy growth on leaf undersides",
+        "Brown to black lesions spreading rapidly",
+        "Firm brown spots on fruits",
+        "Entire plant collapse in severe cases"
+      ],
+      "cultural_controls": [
+        "Remove infected plants immediately",
+        "Destroy all plant debris after harvest",
+        "Avoid planting near potatoes",
+        "Ensure wide plant spacing",
+        "Water at base of plants only",
+        "Remove volunteer tomato and potato plants"
+      ],
+      "biological_controls": [
+        "Limited biological control options available",
+        "Focus on prevention and cultural practices"
+      ],
+      "chemical_controls": [
+        "Apply systemic fungicides like metalaxyl",
+        "Use copper-based fungicides",
+        "Apply chlorothalonil preventively",
+        "Spray every 5-7 days during outbreaks",
+        "Alternate fungicide types to prevent resistance"
+      ],
+      "prevention": [
+        "Plant certified disease-free seeds",
+        "Choose late blight-resistant varieties",
+        "Avoid working with wet plants",
+        "Monitor weather for blight-favorable conditions",
+        "Start preventive sprays before disease appears"
+      ],
+      "severity": "Very High"
+    },
+    {
+      "disease_name": "Potato Early Blight",
+      "crop": "Potato",
+      "summary": "Early blight affects potato foliage and tubers, caused by Alternaria solani. It reduces plant vigor and tuber quality.",
+      "symptoms": [
+        "Brown spots with concentric rings on leaves",
+        "Yellowing and dying of lower leaves first",
+        "Dark lesions on stems",
+        "Sunken spots on tubers",
+        "Reduced tuber size and quality"
+      ],
+      "cultural_controls": [
+        "Plant certified disease-free seed potatoes",
+        "Practice 3-4 year crop rotation",
+        "Hill soil around plants to cover tubers",
+        "Maintain proper soil moisture",
+        "Remove infected foliage before harvest",
+        "Cure tubers properly before storage"
+      ],
+      "biological_controls": [
+        "Apply Bacillus subtilis products",
+        "Use Trichoderma-based biofungicides",
+        "Incorporate compost to improve soil health"
+      ],
+      "chemical_controls": [
+        "Apply mancozeb or chlorothalonil",
+        "Use copper-based fungicides",
+        "Start applications when plants are 6 inches tall",
+        "Continue sprays every 7-10 days",
+        "Focus on protecting new growth"
+      ],
+      "prevention": [
+        "Select resistant varieties",
+        "Ensure balanced fertilization",
+        "Avoid nitrogen excess",
+        "Destroy cull piles promptly",
+        "Monitor fields regularly"
+      ],
+      "severity": "Moderate"
+    },
+    {
+      "disease_name": "Potato Late Blight",
+      "crop": "Potato",
+      "summary": "Late blight is the most destructive potato disease, caused by Phytophthora infestans. It was responsible for the Irish potato famine.",
+      "symptoms": [
+        "Water-soaked lesions on leaves",
+        "White fuzzy growth on leaf undersides",
+        "Black stems and petioles",
+        "Dry brown lesions spreading rapidly",
+        "Reddish-brown rot in tubers"
+      ],
+      "cultural_controls": [
+        "Plant certified seed potatoes",
+        "Hill plants high to protect tubers",
+        "Destroy infected plants immediately",
+        "Remove cull piles and volunteers",
+        "Harvest only when vines are dead",
+        "Avoid irrigation during cool, wet weather"
+      ],
+      "biological_controls": [
+        "Limited effectiveness against late blight",
+        "Use as part of integrated approach"
+      ],
+      "chemical_controls": [
+        "Apply systemic fungicides (metalaxyl, mefenoxam)",
+        "Use protectant fungicides (chlorothalonil, mancozeb)",
+        "Apply copper-based products",
+        "Spray preventively every 5-7 days in wet weather",
+        "Tank-mix systemic and protectant fungicides"
+      ],
+      "prevention": [
+        "Choose resistant varieties when available",
+        "Monitor blight forecasting systems",
+        "Scout fields twice weekly in wet weather",
+        "Start sprays before disease appears",
+        "Maintain good field sanitation"
+      ],
+      "severity": "Very High"
+    },
+    {
+      "disease_name": "Apple Scab",
+      "crop": "Apple",
+      "summary": "Apple scab is a serious fungal disease caused by Venturia inaequalis, affecting leaves, fruits, and sometimes young twigs.",
+      "symptoms": [
+        "Olive-green to brown spots on leaves",
+        "Velvety appearance on lesions",
+        "Distorted or curled leaves",
+        "Corky brown spots on fruits",
+        "Premature fruit drop",
+        "Cracked fruits in severe cases"
+      ],
+      "cultural_controls": [
+        "Rake and remove fallen leaves",
+        "Prune to improve air circulation",
+        "Avoid overhead irrigation",
+        "Remove infected twigs and branches",
+        "Maintain tree vigor with proper nutrition",
+        "Space trees adequately"
+      ],
+      "biological_controls": [
+        "Apply beneficial fungi to decompose fallen leaves",
+        "Use Bacillus-based products early season"
+      ],
+      "chemical_controls": [
+        "Apply fungicides at bud break",
+        "Use captan or sulfur-based products",
+        "Apply systemic fungicides like myclobutanil",
+        "Continue sprays through petal fall",
+        "Follow weather-based spray schedules"
+      ],
+      "prevention": [
+        "Plant scab-resistant varieties",
+        "Ensure proper tree spacing",
+        "Prune for good air flow",
+        "Monitor infection periods",
+        "Apply preventive sprays in spring"
+      ],
+      "severity": "High"
+    },
+    {
+      "disease_name": "Apple Black Rot",
+      "crop": "Apple",
+      "summary": "Black rot is a fungal disease caused by Botryosphaeria obtusa, affecting fruit, leaves, and limbs of apple trees.",
+      "symptoms": [
+        "Purple spots on leaves with light centers",
+        "Frogeye leaf spot appearance",
+        "Rotted areas on fruit starting at calyx",
+        "Black, circular, sunken lesions on fruit",
+        "Mummified fruits remaining on tree",
+        "Cankers on limbs and trunks"
+      ],
+      "cultural_controls": [
+        "Remove mummified fruits from tree and ground",
+        "Prune out dead and diseased wood",
+        "Remove cankers by pruning below infection",
+        "Thin fruits to prevent touching",
+        "Maintain tree vigor",
+        "Improve drainage around trees"
+      ],
+      "biological_controls": [
+        "Limited biological options",
+        "Focus on sanitation and cultural practices"
+      ],
+      "chemical_controls": [
+        "Apply captan fungicide",
+        "Use thiophanate-methyl",
+        "Apply copper fungicides during dormancy",
+        "Spray from pink bud through summer",
+        "Continue applications until harvest"
+      ],
+      "prevention": [
+        "Select resistant cultivars",
+        "Avoid tree stress through proper care",
+        "Prune regularly for air circulation",
+        "Remove all infected material",
+        "Apply dormant sprays"
+      ],
+      "severity": "Moderate to High"
+    },
+    {
+      "disease_name": "Grape Black Rot",
+      "crop": "Grape",
+      "summary": "Black rot is a devastating fungal disease of grapes caused by Guignardia bidwellii, affecting all green parts of the vine.",
+      "symptoms": [
+        "Reddish-brown spots on leaves",
+        "Black pycnidia (fruiting bodies) in leaf spots",
+        "Brown lesions on shoots and tendrils",
+        "Light brown spots on young berries",
+        "Berries shrivel into hard black mummies",
+        "Total crop loss in severe cases"
+      ],
+      "cultural_controls": [
+        "Remove and destroy mummified berries",
+        "Prune for good air circulation",
+        "Remove infected canes during winter",
+        "Keep vineyard floor clean",
+        "Avoid excessive nitrogen",
+        "Maintain proper vine spacing"
+      ],
+      "biological_controls": [
+        "Apply Bacillus subtilis products",
+        "Limited effectiveness, use with other methods"
+      ],
+      "chemical_controls": [
+        "Apply mancozeb or captan",
+        "Use copper fungicides",
+        "Apply myclobutanil for severe infections",
+        "Start sprays at bud break",
+        "Continue through berry set",
+        "Spray every 10-14 days in wet weather"
+      ],
+      "prevention": [
+        "Choose resistant varieties when available",
+        "Scout regularly during wet periods",
+        "Begin preventive sprays early",
+        "Maintain vine vigor",
+        "Improve drainage"
+      ],
+      "severity": "High"
+    },
+    {
+      "disease_name": "Corn Common Rust",
+      "crop": "Corn",
+      "summary": "Common rust is a fungal disease caused by Puccinia sorghi, producing rust-colored pustules on corn leaves.",
+      "symptoms": [
+        "Small circular to elongated rust-colored pustules",
+        "Pustules on both leaf surfaces",
+        "Pustules turn dark brown or black as season progresses",
+        "Severe infections cause premature leaf death",
+        "Reduced photosynthesis and yield"
+      ],
+      "cultural_controls": [
+        "Plant early to avoid peak rust periods",
+        "Remove volunteer corn plants",
+        "Practice crop rotation",
+        "Maintain balanced fertility",
+        "Ensure adequate plant spacing"
+      ],
+      "biological_controls": [
+        "Limited biological control options",
+        "Focus on resistant varieties"
+      ],
+      "chemical_controls": [
+        "Apply triazole fungicides if severe",
+        "Use strobilurin fungicides",
+        "Treat only if rust appears before silking",
+        "Usually economical only for seed production",
+        "Follow economic thresholds"
+      ],
+      "prevention": [
+        "Plant rust-resistant hybrids",
+        "Monitor fields regularly",
+        "Choose adapted varieties for your region",
+        "Avoid late planting",
+        "Maintain plant health"
+      ],
+      "severity": "Low to Moderate"
+    },
+    {
+      "disease_name": "Corn Northern Leaf Blight",
+      "crop": "Corn",
+      "summary": "Northern leaf blight is a fungal disease caused by Exserohilum turcicum, creating long, elliptical lesions on corn leaves.",
+      "symptoms": [
+        "Long gray-green to tan lesions on leaves",
+        "Lesions 1-6 inches long, cigar-shaped",
+        "Lesions may merge, destroying entire leaves",
+        "Disease progresses from lower to upper leaves",
+        "Reduced grain fill and yield"
+      ],
+      "cultural_controls": [
+        "Practice 2-3 year crop rotation",
+        "Till under crop residue",
+        "Remove volunteer corn",
+        "Ensure proper plant spacing",
+        "Avoid over-fertilization with nitrogen"
+      ],
+      "biological_controls": [
+        "Limited biological options available",
+        "Use as part of integrated approach"
+      ],
+      "chemical_controls": [
+        "Apply fungicides if disease severe before tasseling",
+        "Use strobilurin or triazole fungicides",
+        "Time applications at disease onset",
+        "May require second application",
+        "Most effective when applied early"
+      ],
+      "prevention": [
+        "Plant resistant hybrids",
+        "Choose appropriate hybrids for your area",
+        "Monitor fields from V8 growth stage",
+        "Avoid continuous corn in same field",
+        "Maintain balanced fertility"
+      ],
+      "severity": "Moderate to High"
+    },
+    {
+      "disease_name": "Healthy",
+      "crop": "Various",
+      "summary": "No disease detected. Plant appears healthy with no visible symptoms of disease.",
+      "symptoms": [
+        "Green, vigorous foliage",
+        "No spots, lesions, or discoloration",
+        "Normal growth and development",
+        "No signs of wilting or stress"
+      ],
+      "cultural_controls": [
+        "Continue current good practices",
+        "Maintain proper watering schedule",
+        "Ensure adequate nutrition",
+        "Monitor regularly for any changes"
+      ],
+      "biological_controls": [
+        "Not needed for healthy plants",
+        "Maintain beneficial soil organisms"
+      ],
+      "chemical_controls": [
+        "No chemical treatments needed",
+        "Avoid unnecessary pesticide use"
+      ],
+      "prevention": [
+        "Continue monitoring plant health",
+        "Maintain good cultural practices",
+        "Practice preventive pest management",
+        "Ensure proper spacing and air circulation"
+      ],
+      "severity": "None"
+    }
+  ]
+}
