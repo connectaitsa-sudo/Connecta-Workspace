@@ -1,58 +1,105 @@
-import { useState } from 'react';
-import Header from './components/Header';
-import AudioInput from './components/AudioInput';
-import TranscriptInput from './components/TranscriptInput';
-import MeetingResults from './components/MeetingResults';
+import { useState, useEffect } from 'react';
+import Sidebar from './components/Sidebar';
+import Dashboard from './components/Dashboard';
+import NewMeeting from './components/NewMeeting';
+import MeetingDetail from './components/MeetingDetail';
+import Integrations from './components/Integrations';
+import Settings from './components/Settings';
 import { Meeting } from './types';
+import { listMeetings } from './api';
 import './App.css';
 
-function App() {
-  const [currentMeeting, setCurrentMeeting] = useState<Meeting | null>(null);
-  const [inputMode, setInputMode] = useState<'audio' | 'transcript'>('audio');
+type View = 'dashboard' | 'new-meeting' | 'meeting-detail' | 'integrations' | 'settings';
 
-  const handleMeetingCreated = (meeting: Meeting) => {
-    setCurrentMeeting(meeting);
+function App() {
+  const [currentView, setCurrentView] = useState<View>('dashboard');
+  const [selectedMeeting, setSelectedMeeting] = useState<Meeting | null>(null);
+  const [meetings, setMeetings] = useState<Meeting[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    loadMeetings();
+  }, []);
+
+  const loadMeetings = async () => {
+    try {
+      setLoading(true);
+      const data = await listMeetings();
+      setMeetings(data.meetings);
+    } catch (error) {
+      console.error('Failed to load meetings:', error);
+    } finally {
+      setLoading(false);
+    }
   };
 
-  const handleMeetingUpdate = (meeting: Meeting) => {
-    setCurrentMeeting(meeting);
+  const handleViewMeeting = (meeting: Meeting) => {
+    setSelectedMeeting(meeting);
+    setCurrentView('meeting-detail');
+  };
+
+  const handleMeetingCreated = (meeting: Meeting) => {
+    setMeetings(prev => [meeting, ...prev]);
+    setSelectedMeeting(meeting);
+    setCurrentView('meeting-detail');
+  };
+
+  const handleMeetingUpdated = (meeting: Meeting) => {
+    setMeetings(prev => prev.map(m => m.id === meeting.id ? meeting : m));
+    if (selectedMeeting?.id === meeting.id) {
+      setSelectedMeeting(meeting);
+    }
+  };
+
+  const handleMeetingDeleted = (meetingId: number) => {
+    setMeetings(prev => prev.filter(m => m.id !== meetingId));
+    if (selectedMeeting?.id === meetingId) {
+      setSelectedMeeting(null);
+      setCurrentView('dashboard');
+    }
   };
 
   return (
     <div className="app">
-      <Header />
+      <Sidebar 
+        currentView={currentView}
+        onNavigate={setCurrentView}
+      />
       
-      <div className="main-container">
-        <div className="input-section">
-          <div className="mode-selector">
-            <button
-              className={`mode-btn ${inputMode === 'audio' ? 'active' : ''}`}
-              onClick={() => setInputMode('audio')}
-            >
-              Audio/Video Upload
-            </button>
-            <button
-              className={`mode-btn ${inputMode === 'transcript' ? 'active' : ''}`}
-              onClick={() => setInputMode('transcript')}
-            >
-              Transcript Text
-            </button>
-          </div>
-
-          {inputMode === 'audio' ? (
-            <AudioInput onMeetingCreated={handleMeetingCreated} />
-          ) : (
-            <TranscriptInput onMeetingCreated={handleMeetingCreated} />
-          )}
-        </div>
-
-        <div className="results-section">
-          <MeetingResults 
-            meeting={currentMeeting} 
-            onMeetingUpdate={handleMeetingUpdate}
+      <main className="main-content">
+        {currentView === 'dashboard' && (
+          <Dashboard
+            meetings={meetings}
+            loading={loading}
+            onViewMeeting={handleViewMeeting}
+            onRefresh={loadMeetings}
           />
-        </div>
-      </div>
+        )}
+
+        {currentView === 'new-meeting' && (
+          <NewMeeting
+            onMeetingCreated={handleMeetingCreated}
+            onBack={() => setCurrentView('dashboard')}
+          />
+        )}
+
+        {currentView === 'meeting-detail' && selectedMeeting && (
+          <MeetingDetail
+            meeting={selectedMeeting}
+            onBack={() => setCurrentView('dashboard')}
+            onMeetingUpdated={handleMeetingUpdated}
+            onMeetingDeleted={handleMeetingDeleted}
+          />
+        )}
+
+        {currentView === 'integrations' && (
+          <Integrations />
+        )}
+
+        {currentView === 'settings' && (
+          <Settings />
+        )}
+      </main>
     </div>
   );
 }
