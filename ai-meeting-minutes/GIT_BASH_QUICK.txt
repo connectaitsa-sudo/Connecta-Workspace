@@ -1,0 +1,43 @@
+===============================================
+GIT BASH - AI MEETING MINUTES QUICK START
+===============================================
+
+STEP 1: Clone/Navigate
+----------------------
+cd ~
+git clone https://github.com/connectaitsa-sudo/Connecta-Workspace.git
+cd Connecta-Workspace
+
+STEP 2: Checkout Branch
+-----------------------
+git fetch origin
+git checkout cursor/ai-meeting-minutes-system-1e9d
+git pull origin cursor/ai-meeting-minutes-system-1e9d
+
+STEP 3: Backend (Terminal 1)
+-----------------------------
+cd ai-meeting-minutes/backend
+source venv/bin/activate
+python run.py
+
+STEP 4: Frontend (Terminal 2 - NEW GIT BASH)
+---------------------------------------------
+cd ~/Connecta-Workspace/ai-meeting-minutes/frontend
+npm run dev
+
+STEP 5: Browser
+---------------
+http://localhost:5173
+
+===============================================
+THAT'S IT! SYSTEM RUNNING! 🚀
+===============================================
+
+TROUBLESHOOTING:
+---------------
+venv not found?   → python -m venv venv
+Python not found? → Use python3 instead
+npm not found?    → Install Node.js from nodejs.org
+Port in use?      → Press Ctrl+C and restart
+
+===============================================
