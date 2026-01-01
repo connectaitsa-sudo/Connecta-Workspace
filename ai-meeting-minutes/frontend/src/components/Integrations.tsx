@@ -1,7 +1,61 @@
-import { Zap, Video, Users, Link as LinkIcon } from 'lucide-react';
+import { useState } from 'react';
+import { Zap, Video, Users, Link as LinkIcon, ExternalLink, Check } from 'lucide-react';
+import axios from 'axios';
 import './Integrations.css';
 
 function Integrations() {
+  const [zoomConnected, setZoomConnected] = useState(false);
+  const [teamsConnected, setTeamsConnected] = useState(false);
+  const [loading, setLoading] = useState<string | null>(null);
+
+  const connectZoom = async () => {
+    setLoading('zoom');
+    try {
+      const response = await axios.get('http://localhost:8000/api/integrations/zoom/auth');
+      const authUrl = response.data.authorization_url;
+      
+      // Open in popup
+      const popup = window.open(authUrl, 'Zoom Authorization', 'width=600,height=700');
+      
+      // Listen for popup close or success
+      const checkPopup = setInterval(() => {
+        if (popup?.closed) {
+          clearInterval(checkPopup);
+          setZoomConnected(true);
+          setLoading(null);
+        }
+      }, 500);
+    } catch (error) {
+      console.error('Zoom connection error:', error);
+      alert('Failed to connect Zoom. Please check backend logs.');
+      setLoading(null);
+    }
+  };
+
+  const connectTeams = async () => {
+    setLoading('teams');
+    try {
+      const response = await axios.get('http://localhost:8000/api/integrations/teams/auth');
+      const authUrl = response.data.authorization_url;
+      
+      // Open in popup
+      const popup = window.open(authUrl, 'Teams Authorization', 'width=600,height=700');
+      
+      // Listen for popup close or success
+      const checkPopup = setInterval(() => {
+        if (popup?.closed) {
+          clearInterval(checkPopup);
+          setTeamsConnected(true);
+          setLoading(null);
+        }
+      }, 500);
+    } catch (error) {
+      console.error('Teams connection error:', error);
+      alert('Failed to connect Teams. Please check backend logs.');
+      setLoading(null);
+    }
+  };
+
   return (
     <div className="integrations">
       <div className="integrations-header">
@@ -20,10 +74,21 @@ function Integrations() {
               Automatically import and transcribe your Zoom meeting recordings
             </p>
             <div className="integration-status">
-              <span className="badge badge-info">Coming Soon</span>
+              {zoomConnected ? (
+                <span className="badge badge-success">
+                  <Check size={12} /> Connected
+                </span>
+              ) : (
+                <span className="badge badge-info">Ready to Connect</span>
+              )}
             </div>
-            <button className="btn btn-secondary" disabled>
-              Connect Zoom
+            <button 
+              className={`btn ${zoomConnected ? 'btn-success' : 'btn-primary'}`}
+              onClick={connectZoom}
+              disabled={loading === 'zoom' || zoomConnected}
+            >
+              {loading === 'zoom' ? 'Connecting...' : zoomConnected ? 'Connected' : 'Connect Zoom'}
+              {!zoomConnected && <ExternalLink size={16} />}
             </button>
           </div>
         </div>
@@ -38,10 +103,21 @@ function Integrations() {
               Sync your Teams meetings and generate minutes automatically
             </p>
             <div className="integration-status">
-              <span className="badge badge-info">Coming Soon</span>
+              {teamsConnected ? (
+                <span className="badge badge-success">
+                  <Check size={12} /> Connected
+                </span>
+              ) : (
+                <span className="badge badge-info">Ready to Connect</span>
+              )}
             </div>
-            <button className="btn btn-secondary" disabled>
-              Connect Teams
+            <button 
+              className={`btn ${teamsConnected ? 'btn-success' : 'btn-primary'}`}
+              onClick={connectTeams}
+              disabled={loading === 'teams' || teamsConnected}
+            >
+              {loading === 'teams' ? 'Connecting...' : teamsConnected ? 'Connected' : 'Connect Teams'}
+              {!teamsConnected && <ExternalLink size={16} />}
             </button>
           </div>
         </div>
