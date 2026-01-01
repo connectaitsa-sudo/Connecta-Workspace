@@ -1,19 +1,61 @@
 """API endpoints for third-party integrations (Zoom, Teams, etc.)"""
 
-import hmac
-import hashlib
-from fastapi import APIRouter, Request, Depends, HTTPException, Header
+import os
+import secrets
+from fastapi import APIRouter, Request, Depends, HTTPException, Header, Query
+from fastapi.responses import RedirectResponse
 from sqlalchemy.ext.asyncio import AsyncSession
 from typing import Optional
 
 from app.core.database import get_db
 from app.core.config import settings
 from app.models.meeting import Meeting
+from app.services.zoom_service import zoom_service
+from app.services.teams_service import teams_service
 
 router = APIRouter(prefix="/api/integrations", tags=["integrations"])
 
 
-def verify_zoom_webhook(request_body: bytes, signature: str) -> bool:
+# ==================== ZOOM INTEGRATION ====================
+
+@router.get("/zoom/auth")
+async def zoom_auth():
+    """Initiate Zoom OAuth flow"""
+    state = secrets.token_urlsafe(32)
+    redirect_uri = f"{settings.HOST}:{settings.PORT}/api/integrations/zoom/callback"
+    if settings.HOST == "0.0.0.0":
+        redirect_uri = f"http://localhost:{settings.PORT}/api/integrations/zoom/callback"
+    
+    auth_url = zoom_service.get_authorization_url(redirect_uri, state)
+    return {"authorization_url": auth_url, "state": state}
+
+
+@router.get("/zoom/callback")
+async def zoom_callback(
+    code: str = Query(...),
+    state: str = Query(...),
+    db: AsyncSession = Depends(get_db)
+):
+    """Handle Zoom OAuth callback"""
+    try:
+        redirect_uri = f"http://localhost:{settings.PORT}/api/integrations/zoom/callback"
+        
+        # Exchange code for tokens
+        token_data = await zoom_service.exchange_code_for_token(code, redirect_uri)
+        
+        # Get user info
+        user_info = await zoom_service.get_user_info(token_data["access_token"])
+        
+        # Store tokens in database (you should create a UserIntegration model for this)
+        # For now, just return success
+        
+        return RedirectResponse(url="http://localhost:3000/integrations?zoom=connected")
+    
+    except Exception as e:
+        return RedirectResponse(url=f"http://localhost:3000/integrations?error={str(e)}")
+
+
+def verify_zoom_webhook(request_body: bytes, signature: str, timestamp: str) -> bool:
     """Verify Zoom webhook signature"""
     if not settings.ZOOM_WEBHOOK_SECRET:
         return True  # Skip verification if secret not configured
