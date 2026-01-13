@@ -1,0 +1,35 @@
+===============================================
+AI MEETING MINUTES - QUICK START COMMANDS
+===============================================
+
+TERMINAL 1 (Backend):
+---------------------
+cd /workspace/ai-meeting-minutes/backend
+source venv/bin/activate
+python run.py
+
+TERMINAL 2 (Frontend):
+----------------------
+cd /workspace/ai-meeting-minutes/frontend
+npm run dev
+
+BROWSER:
+--------
+http://localhost:5173
+
+===============================================
+THAT'S IT! SYSTEM IS RUNNING! 🚀
+===============================================
+
+Windows Users:
+--------------
+Terminal 1: cd C:\workspace\ai-meeting-minutes\backend
+Terminal 1: venv\Scripts\activate
+Terminal 1: python run.py
+
+Terminal 2: cd C:\workspace\ai-meeting-minutes\frontend
+Terminal 2: npm run dev
+
+Browser: http://localhost:5173
+
+===============================================
